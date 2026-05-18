@@ -2,26 +2,41 @@
 
 Aether é um projeto de análise climática desenvolvido em Python utilizando APIs meteorológicas.
 
-O projeto coleta dados climáticos em tempo real, organiza as informações em tabelas e busca interpretar condições atmosféricas como temperatura, vento, umidade e possibilidade de chuva.
+O sistema coleta dados climáticos em tempo real, interpreta condições atmosféricas e exibe informações organizadas sobre temperatura, vento, umidade, cobertura de nuvens e possibilidade de chuva.
 
 ## ✨ funcionalidades atuais
 
-- coleta de dados climáticos via REST API
-- organização de dados com Pandas
-- exportação de dados em JSON
+- pesquisa climática por cidades
+- coleta de dados em tempo real via REST API
+- análise básica de condições climáticas
+- sistema de previsão simples de chuva
+- organização e manipulação de dados com Pandas
 - exibição formatada de informações climáticas
+- arquitetura modular em Python
 
 ## 🛠️ tecnologias utilizadas
 
 - Python
 - Pandas
 - Requests
-- REST APIs
 - JSON
+- REST APIs
+
+## 📂 estrutura do projeto
+
+````
+main.py       -> fluxo principal do sistema
+api.py        -> comunicação com APIs climáticas
+analysis.py   -> análise e interpretação dos dados 
+````
 
 ## 🌧️ objetivos futuros
-
-- pesquisa por cidades/regiões
-- previsão simples de chuva
+- alertas climáticos adicionais
+- clima seco
+- ventos fortes
+- calor intenso
 - gráficos e visualização de dados
-- interface visual
+- exportação em CSV
+- histórico climático
+- interface gráfica
+- previsões climáticas futuras
