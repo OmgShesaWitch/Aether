@@ -1,3 +1,5 @@
+Português | English
+
 # ☁️ Aether
 
 Aether é um projeto de análise climática desenvolvido em Python utilizando APIs meteorológicas.
@@ -40,3 +42,49 @@ analysis.py   -> análise e interpretação dos dados
 - histórico climático
 - interface gráfica
 - previsões climáticas futuras
+
+
+# ☁️ English Version
+## About the project
+Aether is a weather analysis project developed in Python using meteorological APIs.
+The system collects real-time weather data, interprets atmospheric conditions and displays organized information about:
+temperature,
+wind,
+humidity,
+cloud coverage,
+rain probability.
+
+## ✨ Features
+- Weather search by city
+- Real-time data collection through REST APIs
+- Basic weather condition analysis
+- Simple rain prediction system
+- Data organization and manipulation using Pandas
+- Formatted weather information display
+- Modular Python architecture
+  
+## 🛠️ Technologies
+- Python
+- Pandas
+- Requests
+- JSON
+- REST APIs
+
+````
+📂 Project structure
+Python
+main.py       # main system flow
+api.py        # weather API communication
+analysis.py   # data analysis and interpretation
+````
+
+🌧️ Future goals
+- Additional weather alerts
+    -   dry weather
+    - strong winds
+    - extreme heat
+- Charts and data visualization
+- CSV export
+- Weather history
+- Graphical interface
+- Future weather forecasts
