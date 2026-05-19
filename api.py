@@ -3,15 +3,24 @@ import json
 import pandas as pd
 
 def buscar_coordenadas(cidade):
-    geocoding = f"https://geocoding-api.open-meteo.com/v1/search?name={cidade}&count=10&language=en&format=json"
+   try: 
+      geocoding = f"https://geocoding-api.open-meteo.com/v1/search?name={cidade}&count=10&language=en&format=json"
 
-    local = requests.get(geocoding)
-    dados = local.json()
+      local = requests.get(geocoding)
+      dados = local.json()
+      
+      if "results" not in dados:
+           print("Parece que houve um problema!")
+           return None
 
-    latitude = dados["results"][0]["latitude"]
-    longitude = dados["results"][0]["longitude"]
+      latitude = dados["results"][0]["latitude"]
+      longitude = dados["results"][0]["longitude"]
 
-    return latitude, longitude, dados
+      return latitude, longitude, dados
+
+   except requests.exceptions.RequestException:
+      print("Conexão com API perdida.")
+
 
 def buscar_dados(latitude, longitude):
     url = f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&current=temperature_2m,relative_humidity_2m,precipitation,cloud_cover,wind_speed_10m,wind_direction_10m&timezone=America%2FSao_Paulo"
