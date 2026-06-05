@@ -1,5 +1,4 @@
 import requests
-import json
 import pandas as pd
 
 def buscar_coordenadas(cidade):
@@ -10,7 +9,6 @@ def buscar_coordenadas(cidade):
       dados = local.json()
       
       if "results" not in dados:
-           print("Parece que houve um problema!")
            return None
 
       latitude = dados["results"][0]["latitude"]
@@ -23,7 +21,9 @@ def buscar_coordenadas(cidade):
 
 
 def buscar_dados(latitude, longitude):
-    url = f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&current=temperature_2m,relative_humidity_2m,precipitation,cloud_cover,wind_speed_10m,wind_direction_10m&timezone=America%2FSao_Paulo"
+
+   try:
+    url = f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&current=temperature_2m,relative_humidity_2m,precipitation,cloud_cover,wind_gusts_10m,wind_speed_10m,wind_direction_10m&timezone=America%2FSao_Paulo"
     resposta = requests.get(url)
     data = resposta.json()
 
@@ -31,15 +31,18 @@ def buscar_dados(latitude, longitude):
 
     tabela = pd.DataFrame([clima])
 
-    tabela = tabela[["time", "temperature_2m", "wind_speed_10m", "wind_direction_10m", "relative_humidity_2m", "precipitation", "cloud_cover"]]
+    tabela = tabela[["time", "temperature_2m", "wind_gusts_10m","wind_speed_10m", "wind_direction_10m", "relative_humidity_2m", "precipitation", "cloud_cover"]]
 
     tabela = tabela.rename(columns={
     "time" : "Horário",
     "temperature_2m" : "Temperatura",
     "wind_speed_10m" : "Velocidade do vento",
     "wind_direction_10m" : "Direção do vento",
+    "wind_gusts_10m" : "Rajadas de vento",
     "precipitation" : "Chuva",
     "relative_humidity_2m" : "Umidade",
     "cloud_cover" : "Cobertura de nuvens"})
 
     return tabela, clima, data
+   except requests.exceptions.RequestException:
+       print("Conexão com API perdida!!")
