@@ -54,6 +54,7 @@ while True:
     avisosextras = avisos(clima["wind_gusts_10m"], clima["relative_humidity_2m"])
 
     if avisosextras != None:
-        print(avisosextras)
+       for aviso in avisosextras:
+           print(aviso)
 
     exportarjson(f"{cidade}.json", data) 
