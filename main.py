@@ -1,12 +1,13 @@
 from api import buscar_coordenadas, buscar_dados
 from analysis import analisar_chuva, avisos
 from validacoes import validar_cidade
-
-
+from export import exportarjson
+from urllib.parse import quote
 
 while True:
 
     cidade = input("Digite o nome da cidade ou 0 para encerrar o programa: ").capitalize()
+    cidadeformatada = quote(cidade)
 
     if cidade == "0":
         print("Programa encerrado...")
@@ -18,7 +19,7 @@ while True:
         print(erro)
         continue
 
-    resultado = buscar_coordenadas(cidade)
+    resultado = buscar_coordenadas(cidadeformatada)
 
     if resultado is None:
         print("Cidade não encontrada ou erro na busca!")
@@ -54,3 +55,5 @@ while True:
 
     if avisosextras != None:
         print(avisosextras)
+
+    exportarjson(f"{cidade}.json", data) 
