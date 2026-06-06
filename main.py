@@ -1,7 +1,7 @@
 from api import buscar_coordenadas, buscar_dados
 from analysis import analisar_chuva, avisos
 from validacoes import validar_cidade
-from export import exportarjson
+from export import exportarjson, exportarcsv
 from urllib.parse import quote
 
 while True:
@@ -41,6 +41,18 @@ while True:
     precipitacao = clima["precipitation"]
     nuvens = clima["cloud_cover"]
     rajadas = clima["wind_gusts_10m"]
+     
+    
+    dados_csv = {
+       "cidade" : cidade,
+       "data": horario,
+       "temperatura": temperatura,
+       "velocidade_vento": velocidadevento,
+       "rajadas_vento": rajadas,
+       "umidade": umidade,
+       "precipitacao": precipitacao,
+       "cobertura_nuvens": nuvens,
+    }
 
     print(("Horário: "), horario.replace("T", " "))
     print(("Temperatura: "),temperatura, "°C")
@@ -58,3 +70,4 @@ while True:
            print(aviso)
 
     exportarjson(f"{cidade}.json", data) 
+    exportarcsv("weather_history.csv", dados_csv)

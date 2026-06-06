@@ -2,7 +2,7 @@ import requests
 import pandas as pd
 
 def buscar_coordenadas(cidade):
-   try: 
+   try:  
       geocoding = f"https://geocoding-api.open-meteo.com/v1/search?name={cidade}&count=10&language=en&format=json"
 
       local = requests.get(geocoding)
