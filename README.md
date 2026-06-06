@@ -1,12 +1,12 @@
 Português | English
 
-# ☁️ Aether
+#  Aether
 
 Aether é um projeto de análise climática desenvolvido em Python utilizando APIs meteorológicas.
 
 O sistema coleta dados climáticos em tempo real, interpreta condições atmosféricas e exibe informações organizadas sobre temperatura, vento, umidade, cobertura de nuvens e possibilidade de chuva.
 
-## ✨ funcionalidades atuais
+##  funcionalidades atuais
 
 - pesquisa climática por cidades
 - coleta de dados em tempo real via REST API
@@ -15,8 +15,10 @@ O sistema coleta dados climáticos em tempo real, interpreta condições atmosf�
 - organização e manipulação de dados com Pandas
 - exibição formatada de informações climáticas
 - arquitetura modular em Python
+- alerta de clima seco
+- alerta de ventos fortes
 
-## 🛠️ tecnologias utilizadas
+##  tecnologias utilizadas
 
 - Python
 - Pandas
@@ -24,7 +26,7 @@ O sistema coleta dados climáticos em tempo real, interpreta condições atmosf�
 - JSON
 - REST APIs
 
-## 📂 estrutura do projeto
+##  estrutura do projeto
 
 ````
 main.py       -> fluxo principal do sistema
@@ -32,10 +34,7 @@ api.py        -> comunicação com APIs climáticas
 analysis.py   -> análise e interpretação dos dados 
 ````
 
-## 🌧️ objetivos futuros
-- alertas climáticos adicionais
-- clima seco
-- ventos fortes
+##  objetivos futuros
 - calor intenso
 - gráficos e visualização de dados
 - exportação em CSV
@@ -44,7 +43,7 @@ analysis.py   -> análise e interpretação dos dados
 - previsões climáticas futuras
 
 
-# ☁️ English Version
+#  English Version
 ## About the project
 Aether is a weather analysis project developed in Python using meteorological APIs.
 The system collects real-time weather data, interprets atmospheric conditions and displays organized information about:
@@ -54,7 +53,7 @@ humidity,
 cloud coverage,
 rain probability.
 
-## ✨ Features
+##  Features
 - Weather search by city
 - Real-time data collection through REST APIs
 - Basic weather condition analysis
@@ -63,7 +62,7 @@ rain probability.
 - Formatted weather information display
 - Modular Python architecture
   
-## 🛠️ Technologies
+##  Technologies
 - Python
 - Pandas
 - Requests
@@ -71,14 +70,14 @@ rain probability.
 - REST APIs
 
 ````
-📂 Project structure
+   Project structure
 Python
 main.py       # main system flow
 api.py        # weather API communication
 analysis.py   # data analysis and interpretation
 ````
 
-🌧️ Future goals
+##  Future goals
 - Additional weather alerts
     -   dry weather
     - strong winds
